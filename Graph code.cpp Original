@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n, m;
+
+    cout << "Enter number of computers: ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Invalid number of computers!" << endl;
+        return 0;
+    }
+
+    vector<vector<int>> adj(n + 1);
+
+    cout << "Enter number of cable connections: ";
+    cin >> m;
+
+    if (m < 0) {
+        cout << "Invalid number of connections!" << endl;
+        return 0;
+    }
+
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cout << "Enter connected computers: ";
+        cin >> u >> v;
+
+        if (u < 1 || u > n || v < 1 || v > n) {
+            cout << "Invalid computer number!" << endl;
+            return 0;
+        }
+
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    cout << "\nComputer Network:\n";
+    for (int i = 1; i <= n; i++) {
+        cout << "Computer " << i << " -> ";
+        for (int v : adj[i]) {
+            cout << v << " ";
+        }
+        cout << endl;
+    }
+
+    int a, b;
+    cout << "\nEnter two computers to check: ";
+    cin >> a >> b;
+
+    if (a < 1 || a > n || b < 1 || b > n) {
+        cout << "Invalid computer number!" << endl;
+        return 0;
+    }
+
+    bool connected = false;
+    for (int v : adj[a]) {
+        if (v == b) {
+            connected = true;
+            break;
+        }
+    }
+
+    if (connected) {
+        cout << "Direct connection exists.\n";
+    } else {
+        cout << "No direct connection exists.\n";
+    }
+
+    return 0;
+}
