@@ -1,0 +1,33 @@
+• Step 1: Start
+Begin the program execution.
+• Step 2: Initialize Base Network
+Take the initial number of computers and cable connections as input, validate them, and build the starting adjacency list (same as the original code setup).
+• Step 3: Start Menu Loop
+Start a do-while loop to display a continuous console menu with the following 6 options:
+	1. Display Computer Network
+	2. Check Direct Connection
+	3. Add New Computer and Connections (Mod A)
+	4. Remove Failed Cable (Mod B)
+	5. Count Direct Connections (Mod C)
+	6. Exit
+• Step 4: Read User Choice
+Accept the selected menu option (choice) from the user and process it using a switch-case block.
+• Step 5: Modification A - Add New Computer (Case 3)
+	• Increment the total computer count by 1 (n++).
+	• Push a new empty vector slot into the adjacency list for this new node.
+	• Accept the total number of links to establish for this new computer.
+	• Run a loop to input target computer IDs and establish bidirectional cable connections with them.
+• Step 6: Modification B - Remove Failed Cable (Case 4)
+	• Accept the two computer IDs connected by the faulty network cable.
+	• Search for each computer ID inside the other's respective adjacency list using std::find.
+	• If the active link is found, erase the connection from both lists and print a success message.
+• Step 7: Modification C - Count Direct Connections (Case 5)
+	• Execute a sequential loop from computer ID 1 to n.
+	• Fetch the size of each vector (adj[i].size()).
+	• Display this size as the total count of direct point-to-point connections for each specific computer.
+• Step 8: Handle Termination (Case 6)
+	• If the user enters choice 6, display an "Exiting program..." message and break out of the loop.
+• Step 9: Loop Condition
+	• Repeat the entire process from Step 3 as long as the user choice is not equal to 6.
+• Step 10: Stop
+End the program execution.
