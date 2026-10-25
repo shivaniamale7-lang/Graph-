@@ -1,0 +1,38 @@
+
+1. Problem Statement
+
+Develop a C++ program to represent computers as vertices and network cables as edges. Accept the number of computers and cable connections, store the graph using an adjacency list, and display all connections. Allow the user to select two computers and determine whether a direct cable connection exists between them.
+
+2. Algorithm
+
+• Step 1: Start
+Begin the program execution.
+• Step 2: Read Number of Computers
+Take the total number of computers (\(n\)) as input. If \(n \leq 0\), display "Invalid number of computers!" and terminate.
+• Step 3: Initialize Graph Representation
+Create an adjacency list (vector<vector<int>> adj) of size \(n+1\) to handle network nodes using 1-based indexing.
+• Step 4: Read Number of Cable Connections
+Take the total number of cable connections (\(m\)) as input. If \(m < 0\), display "Invalid number of connections!" and terminate.
+• Step 5: Accept Cable Links
+Run a loop \(m\) times to accept pairs of connected computers (\(u\) and \(v\)).
+• Step 6: Validate and Add Bidirectional Links
+	• If \(u\) or \(v\) is out of bounds (less than 1 or greater than \(n\)), display "Invalid computer number!" and terminate.
+	• Append \(v\) to \(u\)'s list and append \(u\) to \(v\)'s list to represent the undirected network link.
+• Step 7: Display Network Topology
+Run a loop from 1 to \(n\) and print each computer along with its complete list of directly linked neighbor computers.
+• Step 8: Input Target Verification Nodes
+Accept two computer IDs (\(a\) and \(b\)) from the user to check for direct connectivity. Validate that both numbers are between 1 and \(n\).
+• Step 9: Check Direct Connection and Print
+	• Traverse through the adjacency list of computer \(a\).
+	• If computer \(b\) is found, set a status flag to true and break.
+	• If the flag is true, display "Direct connection exists."; otherwise, display "No direct connection exists."
+• Step 10: Stop
+End the program execution.
+
+3. Objective
+
+To design and implement a C++ program that models a local area network using the graph data structure, representing computers as nodes and network cables as bidirectional links, to seamlessly check for point-to-point network connectivity.
+
+4. Conclusion
+
+We successfully designed and implemented a C++ application to replicate a structural computer network setup using the graph data structure. Representing computers as vertices and cable connections as undirected edges through an adjacency list proved to be highly memory-efficient (\(O(V + E)\)). The implementation successfully displays the current live topology map and efficiently validates whether two target endpoints have a direct active link connecting them.
