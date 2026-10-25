@@ -1,0 +1,24 @@
+• Step 1: Start
+Begin the program execution.
+• Step 2: Read Number of Computers
+Take the total number of computers (\(n\)) as input from the user. If \(n \leq 0\), display "Invalid number of computers!" and terminate the program (Go to Step 10).
+• Step 3: Initialize Graph Representation
+Create an adjacency list (vector<vector<int>> adj) of size \(n+1\) to store network connections using 1-based indexing.
+• Step 4: Read Number of Cable Connections
+Take the total number of network cable connections (\(m\)) as input. If \(m < 0\), display "Invalid number of connections!" and terminate the program (Go to Step 10).
+• Step 5: Loop for Cable Input
+Start a loop that runs \(m\) times to accept pairs of connected computers.
+• Step 6: Validate and Add Network Connections
+For each connection, input the two computer IDs (\(u\) and \(v\)):
+	• If \(u\) or \(v\) is out of bounds (less than 1 or greater than \(n\)), display "Invalid computer number!" and terminate.
+	• Since the network is bidirectional (undirected), add \(v\) to \(u\)'s list and add \(u\) to \(v\)'s list.
+• Step 7: Display the Network Topology
+Run a loop from 1 to \(n\) and print each computer along with all other computers directly linked to it.
+• Step 8: Input Query Computers
+Take two computer IDs (\(a\) and \(b\)) as input from the user to verify if a direct cable exists between them. Validate that both IDs are within range.
+• Step 9: Verify Connection and Print Result
+	• Set a boolean flag connected = false.
+	• Traverse through the adjacency list of computer \(a\). If computer \(b\) is found in the list, set connected = true and break the loop.
+	• If connected is true, display "Direct connection exists."; otherwise, display "No direct connection exists."
+• Step 10: Stop
+End the program execution.
